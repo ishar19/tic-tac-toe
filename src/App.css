@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,500;9..40,600&display=swap');
+
+:root {
+    --aqua: #31C4BE;
+    --yellow: #F2B237;
+    --bg-color: #192A32;
+    --grey: #D9D9D9;
+    --dark-bg-color: #1F3540;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: #0E4355;
+    margin: 0;
+}
+
+#game {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#quote {
+    position: absolute;
+    bottom: 4%;
+    left: 15%;
+}
+
+@media screen and (min-width: 975px) and (max-width: 1255px) {
+    #quote {
+        left: 5%;
+    }
+}
+
+@media screen and (max-width: 975px) {
+    #quote {
+        display: none;
+    }
+}

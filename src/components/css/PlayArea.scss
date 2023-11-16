@@ -1,0 +1,108 @@
+:root {
+    --light-grey: #A8BEC9;
+}
+
+.play-area {
+    width: 77%;
+    margin: 0 auto;
+    text-align: center;
+
+    .top-layer, .tic-tac-cards, .scores {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin: 1rem auto;
+        gap: 1.88rem;
+    }
+
+    .top-layer {
+        margin-top: 0;
+
+        div:nth-of-type(1) {
+            width: 2rem;
+        }
+    
+        .turn, .refresh {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .turn {
+            box-sizing: border-box;
+            width: 5.375rem;
+            height: 2.4375rem;
+            border-radius: 0.625rem;
+            background: var(--dark-bg-color);
+            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--light-grey);
+            border-top: 2px solid;
+
+            span {
+                height: 3.5rem;
+                font-size: 2.5rem;
+                font-weight: 600;
+            }
+
+        }
+    
+        .refresh {
+            box-sizing: border-box;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 0.3125rem;
+            background-color: #A7BDC8;
+            box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+            margin-top: 0.3rem;
+            cursor: pointer;
+        }
+    }
+    
+    .tic-tac-cards {
+        
+        div {
+            width: 5.375rem;
+            height: 5.375rem;
+            border-radius: 0.625rem;
+            background-color: var(--dark-bg-color);
+            box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    .scores {
+
+        div {
+            box-sizing: border-box;
+            width: 5.375rem;
+            height: 3.0625rem;
+            border-radius: 0.625rem;
+            font-size: 0.675rem;
+            font-weight: 600;
+            color: #1E1E1E;
+            padding-top: 0.5rem;
+        }
+
+        div h3 {
+            font-size: 0.875rem;
+            margin: 0;
+        }
+
+        div:nth-of-type(1) {
+            background-color: var(--aqua);
+        }
+
+        div:nth-of-type(2) {
+            background-color: var(--light-grey);
+        }
+
+        div:nth-of-type(3) {
+            background-color: var(--yellow);
+        }
+    }
+}

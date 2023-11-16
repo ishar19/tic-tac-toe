@@ -1,0 +1,33 @@
+.game-box {
+    width: 26rem;
+    height: 45rem;
+    background-color: var(--bg-color);
+    border-radius: 2.6875rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-shadow: 4px 4px 4px rgba(0,0,0,0.75);
+
+    .logo {
+        position: absolute;
+        top: 8.7rem;
+    }
+
+    @keyframes slide-text {
+        0% {
+            left: 12rem;
+        }
+
+        100% {
+            left: 4rem;
+        }
+    }
+
+    .game-over-box {
+        background-color: rgba(0,0,0,0.73);
+        position: absolute;
+        z-index: 5;
+    }
+}

@@ -1,0 +1,60 @@
+.game-over {
+    width: 26rem;
+    background-color: var(--bg-color);
+    text-align: center;
+    padding: 1.5rem 0;
+    position: relative;
+
+    .game-result {
+        color: #ACC2CD;
+        font-size: 0.9375rem;
+        font-weight: 700;
+    }
+
+    h1 {
+        color: var(--yellow);
+        text-align: center;
+        font-size: 1.75rem;
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+
+        svg {
+            position: relative;
+            top: 7px;
+            margin-right: 10px;
+        }
+    }
+
+    .game-over-buttons {
+        width: 80%;
+        margin: 1rem auto;
+        display: flex;
+        justify-content: space-around;
+
+        button {
+            width: 7.0625rem;
+            height: 2.0625rem;
+            border-radius: 0.625rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .quit {
+            background-color: var(--yellow);
+        }
+
+        .play-again {
+            background-color: var(--aqua);
+        }
+    }
+
+    .close-popup {
+        position: absolute;
+        top: -0.5rem;
+        right: 0.5rem;
+        color: var(--light-grey);
+        font-size: 2.5rem;
+        cursor: pointer;
+    }
+}
