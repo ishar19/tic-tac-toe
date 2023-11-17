@@ -17,17 +17,30 @@
 
     @keyframes slide-text {
         0% {
-            left: 12rem;
+            left: 11rem;
         }
 
         100% {
-            left: 4rem;
+            left: 3.5rem;
         }
     }
-
+    
     .game-over-box {
         background-color: rgba(0,0,0,0.73);
         position: absolute;
         z-index: 5;
     }
+}
+
+@media screen and (max-width: 500px) {
+    @keyframes slide-text {
+        0% {
+            left: 10rem;
+        }
+
+        100% {
+            left: 3.5rem;
+        }
+    }
+ 
 }

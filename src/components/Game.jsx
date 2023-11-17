@@ -53,7 +53,7 @@ function Game() {
 
   return (
     <div className='game-box'>
-        <div className="logo" style={(start && !showPlayArea) ? {animation: "slide-text linear both 0.7s"} : (start && showPlayArea)? {left: "4rem"} : null}>
+        <div className="logo" style={(start && !showPlayArea) ? {animation: "slide-text linear both 0.7s"} : (start && showPlayArea)? {left: "3.5rem"} : null}>
                 <Logo>X</Logo>
                 {"  "}
                 <Logo>O</Logo>
