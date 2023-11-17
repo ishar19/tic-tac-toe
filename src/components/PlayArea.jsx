@@ -15,8 +15,9 @@ function PlayArea({
     
     useEffect(()=> {
         if(turn !== player) {
+            const cpuWinIndex = findBlockChoice(markedIndexes[markedIndexes.length-2], turn);
+            const blockIndex = cpuWinIndex < 0 ? findBlockChoice(markedIndexes[markedIndexes.length-1], player) : cpuWinIndex;
             setTimeout(()=> {
-                const blockIndex = findBlockChoice(markedIndexes[markedIndexes.length-1]);
                 blockIndex < 0 ? markInput(findBestChoice()) : markInput(blockIndex);
                 ticTacRef.current.style.pointerEvents = "auto";
             }, 1000)
@@ -96,15 +97,16 @@ function PlayArea({
             }, 500);
         }
         
-        const findBlockChoice = useCallback((index)=> {
+        const findBlockChoice = useCallback((index, player)=> {
+            const compareTo = player;
             let rowCount = 0, colCount = 0, rowCpuIndex = -1, colCpuIndex = -1;
             //Row & Column Check
             let rowIndex = Math.floor(index/3)*3, colIndex = index % 3;
             const rowEnd = rowIndex+3, colEnd = colIndex+6;
             
         while(rowIndex<rowEnd && colIndex<=colEnd) {
-            inputs[rowIndex] === player ? rowCount++ : (inputs[rowIndex]===""? rowCpuIndex = rowIndex:null);
-            inputs[colIndex] === player ? colCount++ : (inputs[colIndex]===""? colCpuIndex = colIndex:null);
+            inputs[rowIndex] === compareTo ? rowCount++ : (inputs[rowIndex]===""? rowCpuIndex = rowIndex:null);
+            inputs[colIndex] === compareTo ? colCount++ : (inputs[colIndex]===""? colCpuIndex = colIndex:null);
             
             rowIndex++;
             colIndex+=3;
@@ -119,14 +121,14 @@ function PlayArea({
             let diagonalCount = 0;
             let diagIndex = -1;
             if(index%4 === 0) for(let d=0; d<=8; d+=4) {
-                inputs[d] === player ? diagonalCount++ : (inputs[d]===""? diagIndex = d:null);
+                inputs[d] === compareTo ? diagonalCount++ : (inputs[d]===""? diagIndex = d:null);
             }
             
             if(diagonalCount === 2 && diagIndex!==-1) return diagIndex;
             else {
                 diagonalCount = 0, diagIndex = -1;
                 if(index===4 || index%4!==0) for(let d=2; d<=6; d+=2) {
-                    inputs[d] === player ? diagonalCount++ : (inputs[d]===""? diagIndex = d:null);
+                    inputs[d] === compareTo ? diagonalCount++ : (inputs[d]===""? diagIndex = d:null);
                 }
                 if(diagonalCount === 2) return diagIndex;
             }
