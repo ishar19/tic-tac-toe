@@ -35,10 +35,16 @@ function Game() {
     setShowPlayArea(false);
     setPlayer("O");
   }
-
+  
   const handlePlayAgain=()=> {
     setGameOver(false);
     gameOverProps.clearBoxes();
+  }
+  
+  const handleNewGame = ()=> {
+    handlePlayAgain();
+    localStorage.removeItem('scores');
+    setScores({"user": 0, "tie": 0, "cpu": 0});
   }
 
   const handleGameOver = (gameOverData)=> {
@@ -71,7 +77,8 @@ function Game() {
         {
           gameOver &&
             <div className='game-box game-over-box'>
-            <GameOver {...gameOverProps} handleQuit={handleQuit} handlePlayAgain={handlePlayAgain} handleClosePopup={()=> setGameOver(false)}/>
+            <GameOver {...gameOverProps} handleQuit={handleQuit} 
+              handlePlayAgain={gameOverProps.refresh ? handleNewGame : handlePlayAgain} handleClosePopup={()=> setGameOver(false)}/>
             </div>
         }
     </div>

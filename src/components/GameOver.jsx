@@ -20,11 +20,11 @@ function GameOver({
           </h1>
         <div className="game-over-buttons">
             <button style={{order: refresh ? 1 : 0}} className='quit' onClick={handleQuit}>QUIT</button>
-            <button className='play-again' onClick={handlePlayAgain}>PLAY AGAIN</button>
+            <button className='play-again' onClick={handlePlayAgain}>{refresh ? "NEW GAME" : "PLAY AGAIN"}</button>
         </div>
-        <div className="close-popup" onClick={handleClosePopup}>
+        {refresh && <div className="close-popup" onClick={handleClosePopup}>
             &#215;
-        </div>
+        </div>}
     </div>
   )
 }
